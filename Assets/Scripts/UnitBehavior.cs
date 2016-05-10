@@ -1,15 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum Behavior {
+	idle,
+	move,
+	attack
+}
+
+
 public class UnitBehavior : MonoBehaviour {
 	//This function can be disorienting, weird and convoluted.
 	//The main idea is that when you choose to move your character,
 	//some tiles become lit (the ones that you can move your character onto)
 	//it works like that:
 	//the method starts us at the tile where the unit is located.
-	//it then "expands" to the sides, giving each adjacent tile moveMode = 1;
-	//then, the for loop does the same thing to every tile with moveMode = 1, then 2, and so forth, giving
-	//adjacent tiles i + 1 moveMode value. Then, it will be easy to do pathfinding - when you want to go from tile to tile
+	//it then "expands" to the sides, giving each adjacent tile tileMode = 1;
+	//then, the for loop does the same thing to every tile with tileMode = 1, then 2, and so forth, giving
+	//adjacent tiles i + 1 tileMode value. Then, it will be easy to do pathfinding - when you want to go from tile to tile
 	//the unit just goes from tile 1 to x (1,2,3,4...x). ~ Walik
 	GameObject tile,left,right,up,down;
 	lastMove currMove = lastMove.none;
@@ -22,10 +29,17 @@ public class UnitBehavior : MonoBehaviour {
 	}
 
 	void Update() {
+		CalcMovement ();
+	}
+			
+
+
+
+	void CalcMovement() {
 		if (currMove == lastMove.none) {
-					currMove = moveList [z];
-					distance = 0f;
-			}
+			currMove = moveList [z];
+			distance = 0f;
+		}
 		else if (distance < this.transform.parent.GetComponent<SpriteRenderer> ().bounds.size.x) {
 			GameObject.FindWithTag ("Control").GetComponent<MouseManager> ().isControl = false;
 			switch (currMove) {
@@ -46,7 +60,7 @@ public class UnitBehavior : MonoBehaviour {
 				offy = 0;
 				break;
 			}
-
+			GetComponent<Animator> ().SetInteger ("RunMode", offx + 2 * offy);
 			distance += speed*Time.deltaTime;
 			this.transform.position += new Vector3 (offx * speed * Time.deltaTime,0, offy * speed * Time.deltaTime);
 			if (distance >= this.transform.parent.GetComponent<SpriteRenderer> ().bounds.size.x) {
@@ -54,7 +68,7 @@ public class UnitBehavior : MonoBehaviour {
 				currMove = lastMove.none;
 				foreach (Transform child in this.transform.parent.parent) {
 					if (child.GetComponent<TileManager> ().x == this.transform.parent.GetComponent<TileManager> ().x + offx &&
-					    child.GetComponent<TileManager> ().y == this.transform.parent.GetComponent<TileManager> ().y + offy) {
+						child.GetComponent<TileManager> ().y == this.transform.parent.GetComponent<TileManager> ().y + offy) {
 						offx = 0;
 						offy = 0;
 						this.transform.parent = child.transform;
@@ -67,6 +81,7 @@ public class UnitBehavior : MonoBehaviour {
 			if (z == this.GetComponent<UnitStats> ().speed || moveList[z] == lastMove.none) {
 				z = 0;
 				for (int i = 0; i < moveList.Length; i++) {
+					GetComponent<Animator> ().SetInteger ("RunMode", 0);
 					moveList [i] = lastMove.none;
 					this.transform.parent.parent.GetComponent<Map> ().ZeroMap (0);
 					foreach (Transform child in transform.parent.parent) {
@@ -74,37 +89,33 @@ public class UnitBehavior : MonoBehaviour {
 							child.GetComponent<TileManager> ().select = false;
 							this.transform.parent.parent.GetComponent<Map> ().selected = false;
 							GameObject.FindWithTag ("Control").GetComponent<MouseManager> ().isControl = true;
+							transform.parent.parent.GetComponent<Map>().currBehavior = Behavior.idle;
 						}
 					}
 				}
 			}
 		}
+
+
 	}
-			
 
-
-
-
-
-	public void ShowUnitMovement(int tilex, int tiley) {
+	public void ShowUnitMovement(int tilex, int tiley, int range) {
 		GameObject tile;
 		GameObject unit = null;
-		int move;
 		tile = GameObject.FindWithTag ("Map").GetComponent<Map>().map[tilex,tiley];
 		foreach (Transform child in tile.transform) {
 			if (child.tag == "Unit")
 				unit = child.gameObject;
 		}
 		if(unit != null) {
-		move = unit.GetComponent<UnitStats> ().speed;
 		GetNear (tile);
-		left.GetComponent<TileManager> ().moveMode = 1;
-		right.GetComponent<TileManager> ().moveMode = 1;
-		up.GetComponent<TileManager> ().moveMode = 1;
-		down.GetComponent<TileManager> ().moveMode = 1;
-			for (int i = 1; i < move; i++) {
+		left.GetComponent<TileManager> ().tileMode = 1;
+		right.GetComponent<TileManager> ().tileMode = 1;
+		up.GetComponent<TileManager> ().tileMode = 1;
+		down.GetComponent<TileManager> ().tileMode = 1;
+			for (int i = 1; i < range; i++) {
 				foreach (Transform child in GameObject.FindWithTag("Map").transform)
-					if (child.GetComponent<TileManager> ().moveMode == i) {
+					if (child.GetComponent<TileManager> ().tileMode == i) {
 						GetNear (child.gameObject);
 						for (int z = 0; z < 4; z++) {
 							GameObject temp;
@@ -125,10 +136,10 @@ public class UnitBehavior : MonoBehaviour {
 								temp = left;
 								break; //bo jestem lewakiem ~Walik
 							}
-							if ((temp.GetComponent<TileManager> ().moveMode == 0
-							    || temp.GetComponent<TileManager> ().moveMode > temp.GetComponent<TileManager> ().terrainHard + i)
+							if ((temp.GetComponent<TileManager> ().tileMode == 0
+							    || temp.GetComponent<TileManager> ().tileMode > i)
 							    && temp != tile.gameObject) {
-								temp.GetComponent<TileManager> ().moveMode = temp.GetComponent<TileManager> ().terrainHard + i + 1;
+								temp.GetComponent<TileManager> ().tileMode = i + 1;
 							}
 						}
 					}

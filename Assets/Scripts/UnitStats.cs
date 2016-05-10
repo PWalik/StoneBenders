@@ -7,6 +7,7 @@ public class UnitStats : MonoBehaviour {
 	strength, // how much unit can hit from attacks
 	speed, // how much move does the unit have
 	agility, //ability to dodge attacks/crit chance
-	defense; //the greater the defense, less dmg from attacks
+	defense,
+	attackRange; //the greater the defense, less dmg from attacks
 	//~Walik
 }

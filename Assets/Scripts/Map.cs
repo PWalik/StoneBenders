@@ -11,8 +11,8 @@ public enum lastMove {
 
 public class Map : MonoBehaviour {
 	[HideInInspector]
-	public bool selected = false; //check if any of the tiles from the Map is selected (nothing to work with in this script,
-								  //it will be accessed through other objects. ~ Walik
+	public bool selected = false; //check if any of the tiles from the Map is selected (nothing to work with in this script, it will be accessed through other objects. ~ Walik
+	public Behavior currBehavior = Behavior.idle;							  
     public GameObject tilePrefab;
 	public GameObject testUnit;
 	GameObject up,down,left,right,tile;
@@ -47,6 +47,7 @@ public class Map : MonoBehaviour {
 		GameObject unit = Instantiate(testUnit,new Vector3(0,0,0),
 			testUnit.transform.rotation) as GameObject;
 		unit.transform.parent = map [width / 2, height / 2].transform;
+		unit.transform.localScale = new Vector3 (5f, 5f, 5f);
 		unit.transform.localPosition = new Vector3 (0,0,-0.5f);
 		//////////////////////////////////////////////////////
 
@@ -57,6 +58,9 @@ public class Map : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Mouse1) && selected == true) {
 			map [selectx, selecty].GetComponent<TileManager> ().select = false;
 			selected = false;
+			foreach (Transform children in map[selectx,selecty].transform)
+				if (children.tag == "Unit")
+					currBehavior = Behavior.idle;
 		}
 	}
 
@@ -66,7 +70,7 @@ public void ShowPath(GameObject dest) {
 		tile = dest;
 		dir = CheckTile (dest);
 
-		while (tile.GetComponent<TileManager> ().moveMode > 0) {
+		while (tile.GetComponent<TileManager> ().tileMode > 0) {
 			switch (dir) {
 			case lastMove.mdown:
 				tile = down;
@@ -90,19 +94,19 @@ public void ShowPath(GameObject dest) {
 
 lastMove CheckTile(GameObject tilem) {
 		GetNear (tilem);
-			if (up.GetComponent<TileManager> ().moveMode == tilem.GetComponent<TileManager> ().moveMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
+			if (up.GetComponent<TileManager> ().tileMode == tilem.GetComponent<TileManager> ().tileMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
 				up.GetComponent<TileManager> ().pathAvai = true;
 				return lastMove.mup;
 			} 
-		if (down.GetComponent<TileManager> ().moveMode == tilem.GetComponent<TileManager> ().moveMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
+		if (down.GetComponent<TileManager> ().tileMode == tilem.GetComponent<TileManager> ().tileMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
 				down.GetComponent<TileManager> ().pathAvai = true;
 				return lastMove.mdown;
 			}
-		if (left.GetComponent<TileManager> ().moveMode == tilem.GetComponent<TileManager> ().moveMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
+		if (left.GetComponent<TileManager> ().tileMode == tilem.GetComponent<TileManager> ().tileMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
 			left.GetComponent<TileManager> ().pathAvai = true;
 			return lastMove.mleft;
 		}
-		if (right.GetComponent<TileManager> ().moveMode == tilem.GetComponent<TileManager> ().moveMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
+		if (right.GetComponent<TileManager> ().tileMode == tilem.GetComponent<TileManager> ().tileMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
 			right.GetComponent<TileManager> ().pathAvai = true;
 			return lastMove.mright;
 		}
@@ -113,40 +117,40 @@ lastMove CheckTile(lastMove lastmove, GameObject tilem) {
 		GetNear (tilem);
 		switch (lastmove) {
 		case lastMove.mleft: 
-			if (left.GetComponent<TileManager> ().moveMode == tilem.GetComponent<TileManager> ().moveMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
+			if (left.GetComponent<TileManager> ().tileMode == tilem.GetComponent<TileManager> ().tileMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
 				left.GetComponent<TileManager> ().pathAvai = true;
 			
-				if (right.GetComponent<TileManager> ().moveMode == 1)
+				if (right.GetComponent<TileManager> ().tileMode == 1)
 					return 0;
 				else
 					return lastMove.mleft;
 			}
 			break;
 		case lastMove.mright:
-			if (right.GetComponent<TileManager> ().moveMode == tilem.GetComponent<TileManager> ().moveMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
+			if (right.GetComponent<TileManager> ().tileMode == tilem.GetComponent<TileManager> ().tileMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
 				right.GetComponent<TileManager> ().pathAvai = true;
 
-				if (left.GetComponent<TileManager> ().moveMode == 1)
+				if (left.GetComponent<TileManager> ().tileMode == 1)
 					return 0;
 				else
 					return lastMove.mright;
 			}
 			break;
 		case lastMove.mup:
-			if (up.GetComponent<TileManager> ().moveMode == tilem.GetComponent<TileManager> ().moveMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
+			if (up.GetComponent<TileManager> ().tileMode == tilem.GetComponent<TileManager> ().tileMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
 				up.GetComponent<TileManager> ().pathAvai = true;
 
-				if (down.GetComponent<TileManager> ().moveMode == 1)
+				if (down.GetComponent<TileManager> ().tileMode == 1)
 					return 0;
 				else
 					return lastMove.mup;
 			}
 			break;
 		case lastMove.mdown:
-			if (down.GetComponent<TileManager> ().moveMode == tilem.GetComponent<TileManager> ().moveMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
+			if (down.GetComponent<TileManager> ().tileMode == tilem.GetComponent<TileManager> ().tileMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
 				down.GetComponent<TileManager> ().pathAvai = true;
 
-				if (up.GetComponent<TileManager> ().moveMode == 1)
+				if (up.GetComponent<TileManager> ().tileMode == 1)
 					return 0;
 				else
 					return lastMove.mdown;
@@ -155,20 +159,20 @@ lastMove CheckTile(lastMove lastmove, GameObject tilem) {
 		}
 
 		if (lastmove == lastMove.mleft || lastmove == lastMove.mright) {// enum is done in a way where left = - right and up = - down, so it can be done in a single check. ~ Walik
-			if (up.GetComponent<TileManager> ().moveMode == tilem.GetComponent<TileManager> ().moveMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
+			if (up.GetComponent<TileManager> ().tileMode == tilem.GetComponent<TileManager> ().tileMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
 				up.GetComponent<TileManager> ().pathAvai = true;
 				return lastMove.mup;
-			} else if (down.GetComponent<TileManager> ().moveMode == tilem.GetComponent<TileManager> ().moveMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
+			} else if (down.GetComponent<TileManager> ().tileMode == tilem.GetComponent<TileManager> ().tileMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
 				down.GetComponent<TileManager> ().pathAvai = true;
 				return lastMove.mdown;
 			}
 		} 
 		else if (lastmove == lastMove.mup || lastmove == lastMove.mdown) {
-			if (left.GetComponent<TileManager> ().moveMode == tilem.GetComponent<TileManager> ().moveMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
+			if (left.GetComponent<TileManager> ().tileMode == tilem.GetComponent<TileManager> ().tileMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
 				left.GetComponent<TileManager> ().pathAvai = true;
 				return lastMove.mleft;
 			}
-			else if (right.GetComponent<TileManager> ().moveMode == tilem.GetComponent<TileManager> ().moveMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
+			else if (right.GetComponent<TileManager> ().tileMode == tilem.GetComponent<TileManager> ().tileMode - tilem.GetComponent<TileManager> ().terrainHard - 1) {
 				right.GetComponent<TileManager> ().pathAvai = true;
 				return lastMove.mright;
 			}
@@ -208,10 +212,7 @@ lastMove CheckTile(lastMove lastmove, GameObject tilem) {
 			}
 			temp.GetComponent<TileManager> ().pathAvai = false;
 			i++;
-			if (i > 10) {
-				Debug.Log ("Error");
-				break;
-			}
+
 		}
 	}
 		void GetNear(GameObject tile) {
@@ -230,10 +231,10 @@ lastMove CheckTile(lastMove lastmove, GameObject tilem) {
 		} 	
 	}
 
-	public void ZeroMap(int i) { //zeroes movemode
+	public void ZeroMap(int i) { //zeroes tileMode
 			foreach (Transform child in GameObject.FindWithTag("Map").transform) {
-				if (child.GetComponent<TileManager> ().moveMode != 0)
-					child.GetComponent<TileManager> ().moveMode = 0;
+				if (child.GetComponent<TileManager> ().tileMode != 0)
+					child.GetComponent<TileManager> ().tileMode = 0;
 			} 
 			ZeroMap ();
 	}
