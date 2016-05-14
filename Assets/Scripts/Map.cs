@@ -41,6 +41,7 @@ public class Map : MonoBehaviour {
 				tile_go.GetComponent<TileManager> ().x = x;
 				tile_go.GetComponent<TileManager> ().y = y;
 				map [x,y] = tile_go;
+
             }
         }
 		///////////////////////////////////////////////////TEST
@@ -50,19 +51,16 @@ public class Map : MonoBehaviour {
 		unit.transform.localScale = new Vector3 (5f, 5f, 5f);
 		unit.transform.localPosition = new Vector3 (0,0,-0.5f);
 		//////////////////////////////////////////////////////
+		/// ///////////////////////////////////////////////////TEST
+		GameObject units = Instantiate(testUnit,new Vector3(0,0,0),
+			testUnit.transform.rotation) as GameObject;
+		units.transform.parent = map [width / 3, height / 2].transform;
+		units.transform.localScale = new Vector3 (5f, 5f, 5f);
+		units.transform.localPosition = new Vector3 (0,0,-0.5f);
+		//////////////////////////////////////////////////////
 
 	}
-	//Added the Update function, that checks when we want to uncheck the tile (right mouse button).
-	//It then resets all the tiles to original states ~Walik
-	void Update() {
-		if (Input.GetKeyDown (KeyCode.Mouse1) && selected == true) {
-			map [selectx, selecty].GetComponent<TileManager> ().select = false;
-			selected = false;
-			foreach (Transform children in map[selectx,selecty].transform)
-				if (children.tag == "Unit")
-					currBehavior = Behavior.idle;
-		}
-	}
+		
 
 
 public void ShowPath(GameObject dest) {
@@ -212,7 +210,8 @@ lastMove CheckTile(lastMove lastmove, GameObject tilem) {
 			}
 			temp.GetComponent<TileManager> ().pathAvai = false;
 			i++;
-
+			if (i > 10)
+				break;
 		}
 	}
 		void GetNear(GameObject tile) {
@@ -222,6 +221,7 @@ lastMove CheckTile(lastMove lastmove, GameObject tilem) {
 		down = map [x, y - 1];
 		left = map [x + 1, y];
 		right = map [x - 1, y];
+
 	}
 
 	public void ZeroMap() { //zeroes path avaiable

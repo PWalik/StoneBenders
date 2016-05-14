@@ -20,19 +20,46 @@ public class UnitBehavior : MonoBehaviour {
 	//the unit just goes from tile 1 to x (1,2,3,4...x). ~ Walik
 	GameObject tile,left,right,up,down;
 	lastMove currMove = lastMove.none;
+	Color org;
+	public bool ready = true;
 	int offx, offy, z = 0;
-	int speed = 3;
+	int speed = 6;
 	float distance = 0f;
+	Map map;
 	public lastMove[] moveList;
 	void Start() {
+		org = GetComponent<SpriteRenderer> ().color;
+		map = GameObject.FindWithTag ("Map").GetComponent<Map> ();
 		moveList = new lastMove[gameObject.GetComponent<UnitStats> ().speed];
 	}
 
 	void Update() {
-		CalcMovement ();
-	}
-			
+		if(ready && GetComponent<SpriteRenderer>().color != org)
+			GetComponent<SpriteRenderer> ().color = org;
+				else if(!ready && GetComponent<SpriteRenderer>().color != Color.gray)
+			GetComponent<SpriteRenderer>().color = Color.gray;
 
+		if(map.currBehavior == Behavior.move)
+		CalcMovement ();
+		if (map.currBehavior == Behavior.attack && transform.parent.GetComponent<TileManager>().select)
+			StartAttack ();
+
+
+		if (GetComponent<UnitStats> ().healthPoints <= 0)
+			Die ();
+	}
+
+
+
+
+	void StartAttack() {
+		//map.currBehavior = Behavior.attack;
+		ShowUnitAttackRange (GetComponent<UnitStats> ().attackRange);
+	}
+
+	void Die() {
+		Destroy (gameObject);
+	}
 
 
 	void CalcMovement() {
@@ -87,9 +114,15 @@ public class UnitBehavior : MonoBehaviour {
 					foreach (Transform child in transform.parent.parent) {
 						if (child.GetComponent<TileManager> ().select == true) {
 							child.GetComponent<TileManager> ().select = false;
-							this.transform.parent.parent.GetComponent<Map> ().selected = false;
 							GameObject.FindWithTag ("Control").GetComponent<MouseManager> ().isControl = true;
-							transform.parent.parent.GetComponent<Map>().currBehavior = Behavior.idle;
+							transform.parent.GetComponent<TileManager> ().select = true;
+							map.selected = true; // ----------------------------------------------------
+							map.selectx = transform.parent.GetComponent<TileManager> ().x;// -------- Probably better to do this one with 1 function (like ChangeSelect(GameObject selectTile) or sth)
+							map.selecty = transform.parent.GetComponent<TileManager> ().y; //---------- since i forget about changing selectx and selecty
+							map.currBehavior = Behavior.attack; // don't know if it will be the case always (attack always after movement), cause i dont have the menus
+							//ready, but right now it works this way ~ Walik
+							GameObject.FindWithTag("Control").GetComponent<MouseManager>().selectTile = GameObject.FindWithTag("Control").GetComponent<MouseManager>().chosenTile;
+							//Clunky ~ Walik
 						}
 					}
 				}
@@ -98,21 +131,44 @@ public class UnitBehavior : MonoBehaviour {
 
 
 	}
+	public void DisplayAttackOption (GameObject target){
+		Debug.Log ("Attack!!");
+	}		
 
-	public void ShowUnitMovement(int tilex, int tiley, int range) {
+
+	public void Attack (GameObject target) {
+		float orhp;
+		UnitStats tarStats = target.GetComponent<UnitStats> ();
+		UnitStats orStats = GetComponent<UnitStats> ();
+		tarStats.healthPoints -= orStats.strength * 5 / tarStats.defense; // VERY VIP, CONSIDER IT!
+		if (tarStats.healthPoints > 0) {
+			orhp = tarStats.strength * 0.6f / orStats.defense;
+			if(orhp - (int)orhp > 0.5f)
+				orhp++;
+			
+				orStats.healthPoints -= (int)orhp;
+		}
+		map.ZeroMap (0);
+		map.selected = false;
+		transform.parent.GetComponent<TileManager> ().select = false;
+	}
+
+
+
+	public void ShowUnitAttackRange(int range) {
 		GameObject tile;
 		GameObject unit = null;
-		tile = GameObject.FindWithTag ("Map").GetComponent<Map>().map[tilex,tiley];
+		tile = map.map[transform.parent.GetComponent<TileManager>().x, transform.parent.GetComponent<TileManager>().y];
 		foreach (Transform child in tile.transform) {
 			if (child.tag == "Unit")
 				unit = child.gameObject;
 		}
 		if(unit != null) {
-		GetNear (tile);
-		left.GetComponent<TileManager> ().tileMode = 1;
-		right.GetComponent<TileManager> ().tileMode = 1;
-		up.GetComponent<TileManager> ().tileMode = 1;
-		down.GetComponent<TileManager> ().tileMode = 1;
+			GetNear (tile);
+				left.GetComponent<TileManager> ().tileMode = 1;
+				right.GetComponent<TileManager> ().tileMode = 1;
+				up.GetComponent<TileManager> ().tileMode = 1;
+				down.GetComponent<TileManager> ().tileMode = 1;
 			for (int i = 1; i < range; i++) {
 				foreach (Transform child in GameObject.FindWithTag("Map").transform)
 					if (child.GetComponent<TileManager> ().tileMode == i) {
@@ -134,11 +190,70 @@ public class UnitBehavior : MonoBehaviour {
 								break;
 							default:
 								temp = left;
-								break; //bo jestem lewakiem ~Walik
+								break;
 							}
 							if ((temp.GetComponent<TileManager> ().tileMode == 0
+								|| temp.GetComponent<TileManager> ().tileMode > i)
+								&& temp != tile.gameObject) {
+								temp.GetComponent<TileManager> ().tileMode = i + 1;
+							}
+						}
+					}
+			}
+		}
+	}
+
+	public void ShowUnitRange(int range) {
+		GameObject tile;
+		GameObject unit = null;
+		bool nope = false;
+		tile = GameObject.FindWithTag ("Map").GetComponent<Map>().map[transform.parent.GetComponent<TileManager>().x, transform.parent.GetComponent<TileManager>().y];
+		foreach (Transform child in tile.transform) {
+			if (child.tag == "Unit")
+				unit = child.gameObject;
+		}
+		if(unit != null) {
+		GetNear (tile);
+			if(left.GetComponent<TileManager>().terrainHard != -1)
+				left.GetComponent<TileManager> ().tileMode = 1;
+			if(right.GetComponent<TileManager>().terrainHard != -1)
+				right.GetComponent<TileManager> ().tileMode = 1;
+			if(up.GetComponent<TileManager>().terrainHard != -1)
+				up.GetComponent<TileManager> ().tileMode = 1;
+			if(down.GetComponent<TileManager>().terrainHard != -1)
+				down.GetComponent<TileManager> ().tileMode = 1;
+			for (int i = 1; i < range; i++) {
+				foreach (Transform child in GameObject.FindWithTag("Map").transform)
+					if (child.GetComponent<TileManager> ().tileMode == i) {
+						GetNear (child.gameObject);
+						for (int z = 0; z < 4; z++) {
+							nope = false;
+							GameObject temp;
+							switch (z) {
+							case 0:
+								temp = left;
+								break;
+							case 1:
+								temp = right;
+								break;
+							case 2:
+								temp = up;
+								break;
+							case 3:
+								temp = down;
+								break;
+							default:
+								temp = left;
+								break; //bo jestem lewakiem ~Walik
+							}
+							foreach (Transform childz in temp.transform) {
+								if (childz.tag == "Unit")
+									nope = true;
+							}
+
+							if ((temp.GetComponent<TileManager> ().tileMode == 0
 							    || temp.GetComponent<TileManager> ().tileMode > i)
-							    && temp != tile.gameObject) {
+								&& temp != tile.gameObject && temp.GetComponent<TileManager>().terrainHard != -1 && nope == false) {
 								temp.GetComponent<TileManager> ().tileMode = i + 1;
 							}
 						}

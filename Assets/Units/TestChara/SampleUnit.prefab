@@ -60,11 +60,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 10
-  strength: 3
+  strength: 10
   speed: 5
   agility: 2
   defense: 4
-  attackRange: 0
+  attackRange: 4
 --- !u!114 &11442876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ebd45a2117e97847bf51c60573131ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ready: 1
   moveList: 
 --- !u!212 &21239568
 SpriteRenderer:
@@ -153,6 +154,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: attackRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: strength
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

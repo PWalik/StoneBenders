@@ -4,7 +4,7 @@ using System.Collections;
 public class TileManager : MonoBehaviour {
 	[HideInInspector]
 	public bool pathAvai = false;
-	[HideInInspector]
+	//[HideInInspector]
 	public int terrainHard = 0;
 	[HideInInspector]
 
@@ -17,40 +17,29 @@ public class TileManager : MonoBehaviour {
 	public int x , y;
 	void Update () {
 		if(tileMode == 0)
-			this.GetComponent<SpriteRenderer> ().color = Color.white;
+			GetComponent<SpriteRenderer> ().color = Color.white;
 		//If the tile is hovered at, it changes it's color to gray. ~ Walik
 		if (hover == true) {
-			this.GetComponent<SpriteRenderer> ().color = Color.gray;
+			GetComponent<SpriteRenderer> ().color = Color.gray;
 			//If you then also click the tile, it becomes selected.
-			if (Input.GetKeyUp (KeyCode.Mouse0) && this.transform.parent.GetComponent<Map> ().selected == false) {
-				this.transform.parent.GetComponent<Map> ().selected = true;
-				this.transform.parent.GetComponent<Map> ().selectx = x;
-				this.transform.parent.GetComponent<Map> ().selecty = y;
-				select = true;
-				foreach (Transform child in transform) {
-					if (child.tag == "Unit")
-						child.parent.parent.GetComponent<Map> ().ZeroMap ();
-					child.GetComponent<UnitBehavior> ().ShowUnitMovement (x, y, child.GetComponent<UnitStats> ().speed);
-						transform.parent.GetComponent<Map> ().currBehavior = Behavior.move;
-				}
-			}
+
 		}	//if it's hover != true, it changes back to white. ~ Walik
 			else {
-				this.GetComponent<SpriteRenderer> ().color = Color.white;
+				GetComponent<SpriteRenderer> ().color = Color.white;
 		}
 		//If it's selected, it becomes black.
 	if(select == true)
-			this.GetComponent<SpriteRenderer> ().color = Color.black;
+			GetComponent<SpriteRenderer> ().color = Color.black;
 		//Just a thingy that changes the tile back to it's original state once you stop hovering over it. ~ Walik
 
 	if(tileMode > 0) {
 			if (hover == true)
-				this.GetComponent<SpriteRenderer> ().color = Color.red;
+				GetComponent<SpriteRenderer> ().color = Color.red;
 			 else
-				this.GetComponent<SpriteRenderer> ().color = Color.blue;
+				GetComponent<SpriteRenderer> ().color = Color.blue;
 		}
 		if (pathAvai == true)
-			this.GetComponent<SpriteRenderer> ().color = Color.yellow;
+			GetComponent<SpriteRenderer> ().color = Color.yellow;
 
 		if (GameObject.FindWithTag ("Control").GetComponent<MouseManager> ().isControl == true) {
 			hover = false;
