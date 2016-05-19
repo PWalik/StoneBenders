@@ -8,6 +8,7 @@ public enum Behavior {
 }
 
 
+
 public class UnitBehavior : MonoBehaviour {
 	//This function can be disorienting, weird and convoluted.
 	//The main idea is that when you choose to move your character,
@@ -19,6 +20,7 @@ public class UnitBehavior : MonoBehaviour {
 	//adjacent tiles i + 1 tileMode value. Then, it will be easy to do pathfinding - when you want to go from tile to tile
 	//the unit just goes from tile 1 to x (1,2,3,4...x). ~ Walik
 	GameObject tile,left,right,up,down;
+	public GameObject lastPos;
 	lastMove currMove = lastMove.none;
 	Color org;
 	public bool ready = true;
@@ -67,6 +69,7 @@ public class UnitBehavior : MonoBehaviour {
 			currMove = moveList [z];
 			distance = 0f;
 		}
+	
 		else if (distance < this.transform.parent.GetComponent<SpriteRenderer> ().bounds.size.x) {
 			GameObject.FindWithTag ("Control").GetComponent<MouseManager> ().isControl = false;
 			switch (currMove) {
@@ -135,12 +138,31 @@ public class UnitBehavior : MonoBehaviour {
 		Debug.Log ("Attack!!");
 	}		
 
+	public void Return() {
+		if (lastPos != null) {
+			transform.parent.GetComponent<TileManager> ().select = false;
+			transform.parent = lastPos.transform;
+			transform.localPosition = new Vector3 (0, 0, 0);
+			transform.position += new Vector3 (0, 0.5f, 0);
+			ready = true;
+			transform.parent.GetComponent<TileManager> ().select = true;
+			map.selectx = lastPos.GetComponent<TileManager> ().x;
+			map.selecty = lastPos.GetComponent<TileManager> ().y;
+			map.currBehavior = Behavior.move;
+			ShowUnitRange (GetComponent<UnitStats> ().speed);
+			GameObject.FindWithTag ("Control").GetComponent<MouseManager> ().selectTile = lastPos;
+			lastPos = transform.parent.gameObject;
+
+		}
+	}
+
+
 
 	public void Attack (GameObject target) {
 		float orhp;
 		UnitStats tarStats = target.GetComponent<UnitStats> ();
 		UnitStats orStats = GetComponent<UnitStats> ();
-		tarStats.healthPoints -= orStats.strength * 5 / tarStats.defense; // VERY VIP, CONSIDER IT!
+		tarStats.healthPoints -= orStats.strength * 5 / tarStats.defense; // VERY VIP, CONSIDER IT! ~ Walik
 		if (tarStats.healthPoints > 0) {
 			orhp = tarStats.strength * 0.6f / orStats.defense;
 			if(orhp - (int)orhp > 0.5f)
@@ -151,6 +173,7 @@ public class UnitBehavior : MonoBehaviour {
 		map.ZeroMap (0);
 		map.selected = false;
 		transform.parent.GetComponent<TileManager> ().select = false;
+		map.currBehavior = Behavior.idle;
 	}
 
 

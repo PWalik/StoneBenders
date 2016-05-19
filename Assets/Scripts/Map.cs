@@ -15,7 +15,7 @@ public class Map : MonoBehaviour {
 	public Behavior currBehavior = Behavior.idle;							  
     public GameObject tilePrefab;
 	public GameObject testUnit;
-	GameObject up,down,left,right,tile;
+	public GameObject up,down,left,right,tile;
 
     // Size of the map in terms of number of hex tiles
     // This is NOT representative of the amount of
@@ -48,12 +48,14 @@ public class Map : MonoBehaviour {
 		GameObject unit = Instantiate(testUnit,new Vector3(0,0,0),
 			testUnit.transform.rotation) as GameObject;
 		unit.transform.parent = map [width / 2, height / 2].transform;
+		unit.GetComponent<UnitStats> ().player = 1;
 		unit.transform.localScale = new Vector3 (5f, 5f, 5f);
 		unit.transform.localPosition = new Vector3 (0,0,-0.5f);
 		//////////////////////////////////////////////////////
 		/// ///////////////////////////////////////////////////TEST
 		GameObject units = Instantiate(testUnit,new Vector3(0,0,0),
 			testUnit.transform.rotation) as GameObject;
+		units.GetComponent<UnitStats> ().player = 2;
 		units.transform.parent = map [width / 3, height / 2].transform;
 		units.transform.localScale = new Vector3 (5f, 5f, 5f);
 		units.transform.localPosition = new Vector3 (0,0,-0.5f);
@@ -61,7 +63,14 @@ public class Map : MonoBehaviour {
 
 	}
 		
-
+	public void RefreshUnits() {
+		for (int i = 0; i < width; i++)
+			for (int j = 0; j < height; j++)
+				foreach (Transform child in map[i,j].transform)
+					if (child.tag == "Unit")
+					if (!child.GetComponent<UnitBehavior> ().ready)
+						child.GetComponent<UnitBehavior> ().ready = true;
+	}
 
 public void ShowPath(GameObject dest) {
 		lastMove dir;
@@ -214,7 +223,7 @@ lastMove CheckTile(lastMove lastmove, GameObject tilem) {
 				break;
 		}
 	}
-		void GetNear(GameObject tile) {
+		public void GetNear(GameObject tile) {
 		int x = tile.GetComponent<TileManager> ().x;
 		int y = tile.GetComponent<TileManager> ().y;
 		up = map [x, y + 1];

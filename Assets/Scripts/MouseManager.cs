@@ -38,9 +38,10 @@ public class MouseManager : MonoBehaviour {
 
 							foreach (Transform child in map.map[map.selectx,map.selecty].transform) {
 								if (child.tag == "Unit")
-									if(child.GetComponent<UnitBehavior>().ready) {
+								if(child.GetComponent<UnitBehavior>().ready && child.GetComponent<UnitStats>().player == GameObject.FindWithTag("Control").GetComponent<TurnManager>().playerTurn) {
 									map.ZeroMap (0);
 									map.currBehavior = Behavior.move;
+									child.GetComponent<UnitBehavior>().lastPos = child.transform.parent.gameObject;
 									child.GetComponent<UnitBehavior> ().ShowUnitRange (child.GetComponent<UnitStats> ().speed);
 								}
 							}
@@ -80,17 +81,18 @@ public class MouseManager : MonoBehaviour {
 					//Added the function that checks when we want to uncheck the tile (right mouse button).
 					//It then resets all the tiles to original states ~Walik
 					if (Input.GetKeyUp (KeyCode.Mouse1) && map.selected == true) {
+						map.ZeroMap (0);
 						if (map.currBehavior == Behavior.attack) {
 							foreach (Transform childe in selectTile.transform) {
 								if (childe.tag == "Unit")
-									childe.GetComponent<UnitBehavior> ().ready = false;
+									childe.GetComponent<UnitBehavior> ().Return ();
 							}
-						}
+						} else {
 							map.map [map.selectx, map.selecty].GetComponent<TileManager> ().select = false;
 							map.selected = false;
 							map.ZeroMap (0);
 							map.currBehavior = Behavior.idle;
-
+						}
 						}
 					if (manager.tileMode > 0 &&
 						map.currBehavior == Behavior.move) {

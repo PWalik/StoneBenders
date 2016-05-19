@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class TileManager : MonoBehaviour {
 	[HideInInspector]
@@ -8,6 +9,9 @@ public class TileManager : MonoBehaviour {
 	public int terrainHard = 0;
 	[HideInInspector]
 
+
+	public List<Buff> buffList = new List<Buff> (); //need BuffList array, every player has to have seperate lists.
+
 	public bool hover = false;
 	[HideInInspector]
 	public bool select = false;
@@ -15,6 +19,23 @@ public class TileManager : MonoBehaviour {
 	public int tileMode = 0; //tileMode >= 0 - it shows how far the tile is from the chosen unit (for movement)
 	[HideInInspector]
 	public int x , y;
+	Buff buff1 = null, buff2 = null;
+
+	void Start(){
+		buff1 = new Buff ();
+		buff1.name = "test1";
+		buff1.stat = Stats.hp;
+		buff1.duration = 1; 
+		buff1.modif = 2;
+		buff2 = new Buff ();
+		buff2.name = "test2";
+		buffList.Add (buff1);
+		buffList.Add (buff2);
+
+	}
+
+
+
 	void Update () {
 		if(tileMode == 0)
 			GetComponent<SpriteRenderer> ().color = Color.white;
@@ -46,3 +67,8 @@ public class TileManager : MonoBehaviour {
 		}
 	}	
 }
+
+
+
+
+

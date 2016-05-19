@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 457062305}
   - 114: {fileID: 457062304}
+  - 114: {fileID: 457062306}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Control
@@ -112,6 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9565153f9f3c4e478f965c338aaba23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chosenTile: {fileID: 0}
+  selectTile: {fileID: 0}
   isControl: 1
 --- !u!4 &457062305
 Transform:
@@ -125,6 +128,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &457062306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 457062303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac2ea7556b05b0545bfb88b7da132757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnNumber: 1
+  playerTurn: 1
+  maxPlayers: 2
+  change: 0
 --- !u!1 &622018044
 GameObject:
   m_ObjectHideFlags: 0
