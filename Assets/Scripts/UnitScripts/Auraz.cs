@@ -6,10 +6,11 @@ public enum BuffType {
 };
 public class Auraz : MonoBehaviour {
 
-	
+	TurnManager turn;
 	Map map;
 	void Start() {
 		map = GameObject.FindWithTag ("Map").GetComponent<Map> ();
+		turn = GameObject.FindWithTag ("Control").GetComponent<TurnManager> ();
 	}
 	void GiveGroundAura (int range, Buff buff) {
 		GameObject tile = transform.parent.gameObject;
@@ -21,14 +22,14 @@ public class Auraz : MonoBehaviour {
 		map.up.GetComponent<TileManager> ().tileMode = 1;
 
 		map.down.GetComponent<TileManager> ().tileMode = 1;
-		if(!map.up.GetComponent<TileManager>().buffList.Contains(buff))
-		map.up.GetComponent<TileManager> ().buffList.Add (buff);
-		if(!map.left.GetComponent<TileManager>().buffList.Contains(buff))
-		map.left.GetComponent<TileManager> ().buffList.Add (buff);
-		if(!map.right.GetComponent<TileManager>().buffList.Contains(buff))
-		map.right.GetComponent<TileManager> ().buffList.Add (buff);
-		if(!map.down.GetComponent<TileManager>().buffList.Contains(buff))
-		map.down.GetComponent<TileManager> ().buffList.Add (buff);
+		if(!map.up.GetComponent<TileManager>().buffList[turn.playerTurn].Contains(buff))
+			map.up.GetComponent<TileManager> ().buffList[turn.playerTurn].Add (buff);
+		if(!map.left.GetComponent<TileManager>().buffList[turn.playerTurn].Contains(buff))
+			map.left.GetComponent<TileManager> ().buffList[turn.playerTurn].Add (buff);
+		if(!map.right.GetComponent<TileManager>().buffList[turn.playerTurn].Contains(buff))
+			map.right.GetComponent<TileManager> ().buffList[turn.playerTurn].Add (buff);
+		if(!map.down.GetComponent<TileManager>().buffList[turn.playerTurn].Contains(buff))
+			map.down.GetComponent<TileManager> ().buffList[turn.playerTurn].Add (buff);
 		
 		for (int i = 1; i <= range; i++) {
 			foreach (Transform child in GameObject.FindWithTag("Map").transform) {
@@ -56,8 +57,8 @@ public class Auraz : MonoBehaviour {
 
 						if (temp.GetComponent<TileManager> ().tileMode == 0) {
 							temp.GetComponent<TileManager> ().tileMode = i + 1;
-							if (temp.GetComponent<TileManager> ().buffList.Contains (buff))
-								temp.GetComponent<TileManager> ().buffList.Add (buff);
+							if (temp.GetComponent<TileManager> ().buffList[turn.playerTurn].Contains (buff))
+								temp.GetComponent<TileManager> ().buffList[turn.playerTurn].Add (buff);
 						}
 					}
 				}

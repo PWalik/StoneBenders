@@ -16,7 +16,7 @@ public class Buff
 public class UnitStats : MonoBehaviour {
 	public List<Buff> buffList = new List<Buff>();
 	public TileManager manager;
-
+	TurnManager turn;
 	public bool isr = false;
 	//a class that contains all of the unit stats.
 	public int healthPoints, //it's health points, when it hits 0 the unit dies (or becomes unconcious or sth)
@@ -29,6 +29,7 @@ public class UnitStats : MonoBehaviour {
 	//~Walik
 
 	void Start() {
+		turn = GameObject.FindWithTag ("Control").GetComponent<TurnManager> ();
 		manager = transform.parent.GetComponent<TileManager> ();
 	}
 	void Update() {
@@ -42,18 +43,17 @@ public class UnitStats : MonoBehaviour {
 				buffList.Remove (array [i]);
 		}
 	}
-	public void CheckBuffs() {
-		Buff[] array = manager.buffList.ToArray ();
-		for (int i = 0; i < manager.buffList.Count; i++) {
+	public void CheckBuffs(int playerNumber) {
+		Buff[] array = manager.buffList [playerNumber].ToArray ();
+		for (int i = 0; i < manager.buffList [playerNumber].Count; i++) {
 			if (!buffList.Contains (array [i])) {
 				buffList.Add (array [i]);
 			}
 		}
 	}
-
 	public void PrintUnitBuffs() {
 		if (isr) {
-			CheckBuffs ();
+			CheckBuffs (turn.playerTurn);
 			for (int i = 0; i < buffList.Count; i++) {
 				Debug.Log (buffList [i].name);
 			}

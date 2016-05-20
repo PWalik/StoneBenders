@@ -21,25 +21,29 @@ public class Map : MonoBehaviour {
     // This is NOT representative of the amount of
     // world space that we're going to take up.
     // i.e. our tiles might be more or less than 1 Unity World Unit ~ Niedzwiedz
-	public const int width = 50;
-    public const int height = 50;
+	public int width = 50;
+    public int height = 50;
 	public GameObject[,] map;
 	float xOffset = 1f;
 	float zOffset = 1f;
+	public bool create = false;
 	public int selectx, selecty;
     // Use this for initialization
-	void Start() {
+	void Awake() {
 		map = new GameObject[width, height];
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
+				
                 GameObject tile_go = (GameObject) Instantiate(tilePrefab, new Vector3(x*xOffset, 0, y*zOffset), tilePrefab.transform.rotation);
                 tile_go.name = "Tile" + x + "x" + y;
                 tile_go.transform.SetParent(this.transform);
                 tile_go.isStatic = true;
 				tile_go.GetComponent<TileManager> ().x = x;
 				tile_go.GetComponent<TileManager> ().y = y;
+				if ((y == height / 2 || y == height / 2 + 1) && x != width/2 && x != width/2 + 1)
+					tile_go.GetComponent<TileManager> ().terrainHard = -1;
 				map [x,y] = tile_go;
 
             }
@@ -47,7 +51,7 @@ public class Map : MonoBehaviour {
 		///////////////////////////////////////////////////TEST
 		GameObject unit = Instantiate(testUnit,new Vector3(0,0,0),
 			testUnit.transform.rotation) as GameObject;
-		unit.transform.parent = map [width / 2, height / 2].transform;
+		unit.transform.parent = map [width / 2, height / 2 + 4].transform;
 		unit.GetComponent<UnitStats> ().player = 1;
 		unit.transform.localScale = new Vector3 (5f, 5f, 5f);
 		unit.transform.localPosition = new Vector3 (0,0,-0.5f);
@@ -56,7 +60,7 @@ public class Map : MonoBehaviour {
 		GameObject units = Instantiate(testUnit,new Vector3(0,0,0),
 			testUnit.transform.rotation) as GameObject;
 		units.GetComponent<UnitStats> ().player = 2;
-		units.transform.parent = map [width / 3, height / 2].transform;
+		units.transform.parent = map [width / 3, height / 2 - 4].transform;
 		units.transform.localScale = new Vector3 (5f, 5f, 5f);
 		units.transform.localPosition = new Vector3 (0,0,-0.5f);
 		//////////////////////////////////////////////////////
