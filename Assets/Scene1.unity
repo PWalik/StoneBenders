@@ -495,11 +495,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grass: {fileID: 115116, guid: 63ebbed50e4840b40a677c17af19ab19, type: 2}
-  water: {fileID: 116946, guid: 079f1d4bc919fa44ba0a9ba2315cd4f8, type: 2}
-  bridge: {fileID: 100076, guid: 991c9883f7be1d14d9d8ad8a9014a35c, type: 3}
+  water: {fileID: 170846, guid: 079f1d4bc919fa44ba0a9ba2315cd4f8, type: 2}
+  bridge: {fileID: 191384, guid: c77838f8213d94040b17e4ca0cd03d5d, type: 2}
   tree: {fileID: 101560, guid: 59fc94dcb9c2d45429eab30886c03e59, type: 2}
-  waterEdge: {fileID: 140722, guid: 6cb77cf4f0835b9478569383bd0ae614, type: 2}
-  waterEdge2: {fileID: 140722, guid: abc5aa114a26e0347bc9c9182c52cd00, type: 2}
+  waterEdge: {fileID: 136814, guid: c2edc60506fe3a54f8d207532070bc92, type: 2}
+  waterEdge2: {fileID: 136814, guid: 4de9a914c4a048a49a115a1299357b76, type: 2}
 --- !u!1 &1490571881
 GameObject:
   m_ObjectHideFlags: 0

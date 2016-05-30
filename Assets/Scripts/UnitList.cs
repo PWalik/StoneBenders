@@ -44,7 +44,7 @@ public class UnitList : MonoBehaviour {
 				}
 			}
 		}
-		RedrawList ();
+		//RedrawList ();
 		CheckWin ();
 }
 	void RedrawList() {
