@@ -19,6 +19,7 @@ public class UnitBehavior : MonoBehaviour {
 	//then, the for loop does the same thing to every tile with tileMode = 1, then 2, and so forth, giving
 	//adjacent tiles i + 1 tileMode value. Then, it will be easy to do pathfinding - when you want to go from tile to tile
 	//the unit just goes from tile 1 to x (1,2,3,4...x). ~ Walik
+	public AudioClip attack;
 	GameObject tile,left,right,up,down;
 	public GameObject lastPos;
 	lastMove currMove = lastMove.none;
@@ -47,15 +48,16 @@ public class UnitBehavior : MonoBehaviour {
 			StartAttack ();
 
 
-		if (GetComponent<UnitStats> ().healthPoints <= 0)
+		if (GetComponent<UnitStats> ().healthPoints <= 0) {
+			GameObject.FindWithTag ("Control").GetComponent<UnitList> ().RefreshList ();
 			Die ();
+		}
 	}
 
 
 
 
 	void StartAttack() {
-		//map.currBehavior = Behavior.attack;
 		ShowUnitAttackRange (GetComponent<UnitStats> ().attackRange);
 	}
 
@@ -103,7 +105,7 @@ public class UnitBehavior : MonoBehaviour {
 						offy = 0;
 						this.transform.parent = child.transform;
 						this.transform.localPosition = new Vector3 (0, 0, 0);
-						this.transform.position += new Vector3 (0, 0.5f, 0);
+						this.transform.position += new Vector3 (0, .23f, .23f);
 						z++;
 					}
 				}
@@ -125,6 +127,7 @@ public class UnitBehavior : MonoBehaviour {
 							map.currBehavior = Behavior.attack; // don't know if it will be the case always (attack always after movement), cause i dont have the menus
 							//ready, but right now it works this way ~ Walik
 							GameObject.FindWithTag("Control").GetComponent<MouseManager>().selectTile = GameObject.FindWithTag("Control").GetComponent<MouseManager>().chosenTile;
+							GameObject.FindWithTag ("Control").GetComponent<UnitList> ().RefreshList ();
 							//Clunky ~ Walik
 						}
 					}
@@ -160,6 +163,7 @@ public class UnitBehavior : MonoBehaviour {
 
 	public void Attack (GameObject target) {
 		float orhp;
+		AudioSource.PlayClipAtPoint (attack, Camera.main.transform.position);
 		UnitStats tarStats = target.GetComponent<UnitStats> ();
 		UnitStats orStats = GetComponent<UnitStats> ();
 		tarStats.healthPoints -= orStats.strength * 5 / tarStats.defense; // VERY VIP, CONSIDER IT! ~ Walik

@@ -91,7 +91,7 @@ Material:
       data:
         first:
           name: _Cutoff
-        second: 0.26
+        second: 0.36
       data:
         first:
           name: _Parallax
@@ -103,7 +103,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.07
+        second: 0.4
       data:
         first:
           name: _BumpScale
@@ -127,7 +127,7 @@ Material:
       data:
         first:
           name: _Metallic
-        second: 0.68
+        second: 0
     m_Colors:
       data:
         first:
@@ -136,4 +136,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0.16911763, g: 1, b: 0.31237325, a: 1}

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class TileManager : MonoBehaviour {
-	[HideInInspector]
+	//[HideInInspector]
 	public bool pathAvai = false;
 	//[HideInInspector]
 	public int terrainHard = 0;
@@ -15,7 +15,7 @@ public class TileManager : MonoBehaviour {
 	public bool hover = false;
 	[HideInInspector]
 	public bool select = false;
-	[HideInInspector]
+	//[HideInInspector]
 	public int tileMode = 0; //tileMode >= 0 - it shows how far the tile is from the chosen unit (for movement)
 	[HideInInspector]
 	public int x , y;

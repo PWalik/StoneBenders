@@ -33,7 +33,7 @@ public class UnitStats : MonoBehaviour {
 		manager = transform.parent.GetComponent<TileManager> ();
 	}
 	void Update() {
-		PrintUnitBuffs ();
+		//PrintUnitBuffs ();
 	}
 
 	public void WipeEternalBuffs() {
