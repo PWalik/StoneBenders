@@ -6,6 +6,12 @@ public class TurnManager : MonoBehaviour {
 	public int turnNumber = 1, playerTurn = 1;
 	public int maxPlayers = 2;
 	public bool change = false;
+    private AI_simple AI_simple;
+
+    void Start()
+    {
+        AI_simple = GetComponent<AI_simple>();
+    }
 
 	void Update() {
 		if (change) {
@@ -20,7 +26,8 @@ public class TurnManager : MonoBehaviour {
 			playerTurn = 1;
 			turnNumber++;
 		}
-	}
+        AI_simple.ProcessTurnIfIsAI(playerTurn);
+    }
 
 
 

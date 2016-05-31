@@ -73,4 +73,9 @@ public class UnitStats : MonoBehaviour {
 				
 
 	}
+
+    public int GetPlayerID()
+    {
+        return player;
+    }
 }
