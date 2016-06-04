@@ -12,6 +12,7 @@ TagManager:
   - Canvas
   - Text
   - UnitBubble
+  - FightButton
   layers:
   - Default
   - TransparentFX

@@ -10,19 +10,19 @@ public class CameraControl : MonoBehaviour {
     void Update()
     {
 		//Arrows change the position of the main camera. ~ Walik
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) 
+		if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || Input.mousePosition.x >= Screen.width - 10) 
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.mousePosition.x <=  10)
         {
             transform.position += Vector3.left * speed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) || Input.mousePosition.y >=  Screen.height  - 10)
         {
             transform.position += Vector3.forward * speed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+		if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S) || Input.mousePosition.y <=  10)
         {
             transform.position += Vector3.back * speed * Time.deltaTime;
         }

@@ -19,7 +19,6 @@ public class UnitBehavior : MonoBehaviour {
 	//then, the for loop does the same thing to every tile with tileMode = 1, then 2, and so forth, giving
 	//adjacent tiles i + 1 tileMode value. Then, it will be easy to do pathfinding - when you want to go from tile to tile
 	//the unit just goes from tile 1 to x (1,2,3,4...x). ~ Walik
-	public AudioClip attack;
 	GameObject tile,left,right,up,down;
 	public GameObject lastPos;
 	lastMove currMove = lastMove.none;
@@ -163,9 +162,9 @@ public class UnitBehavior : MonoBehaviour {
 
 	public void Attack (GameObject target) {
 		float orhp;
-		AudioSource.PlayClipAtPoint (attack, Camera.main.transform.position);
 		UnitStats tarStats = target.GetComponent<UnitStats> ();
 		UnitStats orStats = GetComponent<UnitStats> ();
+		ready = false;
 		tarStats.healthPoints -= orStats.strength * 5 / tarStats.defense; // VERY VIP, CONSIDER IT! ~ Walik
 		if (tarStats.healthPoints > 0) {
 			orhp = tarStats.strength * 0.6f / orStats.defense;

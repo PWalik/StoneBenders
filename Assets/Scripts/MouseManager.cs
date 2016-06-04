@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MouseManager : MonoBehaviour {
-
+	public GameObject fightButton;
 	public Ray ray;
 	 public GameObject chosenTile, selectTile = null;
 	public bool isControl = true;
@@ -64,15 +65,17 @@ public class MouseManager : MonoBehaviour {
 											if (childe.tag == "Unit")
 												childe.GetComponent<UnitBehavior> ().ready = false;
 										}
-									} else
+								} else if(chosenTile.GetComponent<TileManager>().tileMode > 0) {
 										foreach (Transform child in chosenTile.transform) {
-											if (child.tag == "Unit") {
-												foreach (Transform childs in selectTile.transform) {
-													if (childs.tag == "Unit") {
-														childs.GetComponent<UnitBehavior> ().ready = false;
-														childs.GetComponent<UnitBehavior> ().Attack (child.gameObject);
-													}
+										if (child.tag == "Unit" && child.GetComponent<UnitStats>().player!= GameObject.FindWithTag("Control").GetComponent<TurnManager>().playerTurn) {
+											foreach (Transform childs in selectTile.transform) {
+												if (childs.tag == "Unit") {
+													isControl = false;
+													SpawnFightButton (selectTile, chosenTile);
 												}
+											
+											}
+										}
 											}
 										}
 								}
@@ -104,4 +107,43 @@ public class MouseManager : MonoBehaviour {
 			}
 		control.isOnUI = false;
 		}
+
+	void SpawnFightButton(GameObject TileU, GameObject TileOpp) {
+		GameObject unitU = null, unitOpp = null;
+		foreach (Transform child in TileU.transform) {
+			if (child.CompareTag ("Unit"))
+				unitU = child.gameObject;
+		}
+		foreach (Transform child in TileOpp.transform) {
+			if (child.CompareTag ("Unit"))
+				unitOpp = child.gameObject;
+		}
+		if (unitU == null || unitOpp == null) {
+			Debug.Log ("Coś tu się spierdoliło... SpawnFightButton");
+			return;
+		}
+		UnitStats u = unitU.GetComponent<UnitStats> ();
+		UnitStats opp = unitOpp.GetComponent<UnitStats> ();
+		GameObject win = Instantiate (fightButton, fightButton.transform.position, fightButton.transform.rotation) as GameObject;
+		win.transform.SetParent(GameObject.FindWithTag ("Canvas").transform,false);
+		foreach (Transform child in win.transform) {
+			if (child.name == "Image") {
+				foreach (Transform children in child) {
+					if (children.name == "YouHP")
+						children.GetComponent<Text> ().text = "HP: " + u.healthPoints;
+					else if (children.name == "YouDMG")
+						children.GetComponent<Text> ().text = "DMG: " + u.strength * 5 / opp.defense;
+					else if (children.name == "OppHP")
+						children.GetComponent<Text> ().text = "HP: " + opp.healthPoints;
+					else if (children.name == "OppDMG")
+						children.GetComponent<Text> ().text = "DMG: " + opp.strength * 5 / u.defense;
+
+				}
+			}
+		}
+
+		GameObject.FindWithTag ("Control").GetComponent<MouseManager> ().isControl = false;
+
 	}
+
+}

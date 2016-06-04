@@ -11,6 +11,7 @@ GameObject:
   - 65: {fileID: 6578252}
   - 114: {fileID: 11493218}
   - 212: {fileID: 21271478}
+  - 114: {fileID: 11431122}
   m_Layer: 8
   m_Name: Square
   m_TagString: Tile
@@ -43,7 +44,7 @@ Transform:
   m_GameObject: {fileID: 191912}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 473368}
   m_Father: {fileID: 0}
@@ -72,6 +73,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11431122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17544dddb8315094f9569d327fd9d1df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  opacity: 0.5
 --- !u!114 &11493134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,6 +239,18 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: f4ecfa5954f04324c8db2a6ed8202b79,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: opacity
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 191912}
