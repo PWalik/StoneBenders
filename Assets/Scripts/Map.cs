@@ -17,7 +17,7 @@ public class Map : MonoBehaviour {
 	public GameObject testUnit;
 	public GameObject enemyUnit;
 	public GameObject up,down,left,right,tile;
-	GameObject button;
+	public GameObject button;
 
     // Size of the map in terms of number of hex tiles
     // This is NOT representative of the amount of
@@ -100,7 +100,7 @@ public class Map : MonoBehaviour {
 		if (currBehavior == Behavior.idle && button.activeInHierarchy == false)
 			button.SetActive (true);
 
-		if (currBehavior != Behavior.idle && button.activeInHierarchy != true)
+		if (currBehavior != Behavior.idle && button.activeInHierarchy == true)
 			button.SetActive (false);
 
 	}

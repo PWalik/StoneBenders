@@ -29,6 +29,7 @@ public class TurnManager : MonoBehaviour {
 				playerTurn = 1;
 				turnNumber++;
 			}
+			map.ZeroMap ();
 			GetComponent<UnitList> ().RefreshList ();
 			GetComponent<UnitList> ().DisableEnableUnits (playerTurn);
 			ChangeButton (playerTurn);
