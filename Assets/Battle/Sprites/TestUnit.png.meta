@@ -1,0 +1,918 @@
+fileFormatVersion: 2
+guid: f525f9691dd26e94bbc0ae6ba95f8f09
+timeCreated: 1462821789
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: TestUnit_0
+    21300002: TestUnit_1
+    21300004: TestUnit_2
+    21300006: TestUnit_3
+    21300008: TestUnit_4
+    21300010: TestUnit_5
+    21300012: TestUnit_6
+    21300014: TestUnit_7
+    21300016: TestUnit_8
+    21300018: TestUnit_9
+    21300020: TestUnit_10
+    21300022: TestUnit_11
+    21300024: TestUnit_12
+    21300026: TestUnit_13
+    21300028: TestUnit_14
+    21300030: TestUnit_15
+    21300032: TestUnit_16
+    21300034: TestUnit_17
+    21300036: TestUnit_18
+    21300038: TestUnit_19
+    21300040: TestUnit_20
+    21300042: TestUnit_21
+    21300044: TestUnit_22
+    21300046: TestUnit_23
+    21300048: TestUnit_24
+    21300050: TestUnit_25
+    21300052: TestUnit_26
+    21300054: TestUnit_27
+    21300056: TestUnit_28
+    21300058: TestUnit_29
+    21300060: TestUnit_30
+    21300062: TestUnit_31
+    21300064: TestUnit_32
+    21300066: TestUnit_33
+    21300068: TestUnit_34
+    21300070: TestUnit_35
+    21300072: TestUnit_36
+    21300074: TestUnit_37
+    21300076: TestUnit_38
+    21300078: TestUnit_39
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: TestUnit_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 290.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6.5, y: 14.200012}
+        - {x: -10.5, y: 14.200012}
+        - {x: -15.5, y: 5.200012}
+        - {x: -15.5, y: -7.799988}
+        - {x: -13.5, y: -12.799988}
+        - {x: -7.5, y: -14.799988}
+        - {x: 6.5, y: -14.799988}
+        - {x: 9.5, y: -9.799988}
+        - {x: 14.5, y: 0.2000122}
+        - {x: 14.5, y: 11.200012}
+    - name: TestUnit_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 290.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12.5, y: 13.200012}
+        - {x: 7.5, y: 14.200012}
+        - {x: -10.5, y: 14.200012}
+        - {x: -15.5, y: 5.200012}
+        - {x: -15.5, y: -10.799988}
+        - {x: -11.5, y: -14.799988}
+        - {x: 9.5, y: -14.799988}
+        - {x: 14.5, y: -1.7999878}
+        - {x: 14.5, y: 9.200012}
+    - name: TestUnit_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 290.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.5, y: 13.200012}
+        - {x: -14.5, y: 10.200012}
+        - {x: -15.5, y: 7.200012}
+        - {x: -15.5, y: -9.799988}
+        - {x: -10.5, y: -14.799988}
+        - {x: 9.5, y: -14.799988}
+        - {x: 14.5, y: -12.799988}
+        - {x: 14.5, y: 11.200012}
+        - {x: 9.5, y: 13.200012}
+    - name: TestUnit_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 290.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7.5, y: 13.200012}
+        - {x: -8.5, y: 13.200012}
+        - {x: -15.5, y: 0.2000122}
+        - {x: -15.5, y: -2.7999878}
+        - {x: -13.5, y: -12.799988}
+        - {x: -9.5, y: -14.799988}
+        - {x: 9.5, y: -14.799988}
+        - {x: 15.5, y: -3.7999878}
+        - {x: 15.5, y: 11.200012}
+        - {x: 12.5, y: 12.200012}
+    - name: TestUnit_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 258.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.5, y: 16.200012}
+        - {x: -10.5, y: 13.200012}
+        - {x: -10.5, y: -12.799988}
+        - {x: -6.5, y: -14.799988}
+        - {x: 12.5, y: -14.799988}
+        - {x: 12.5, y: 16.200012}
+    - name: TestUnit_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 258.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12.5, y: 13.200012}
+        - {x: -13.5, y: 13.200012}
+        - {x: -16.5, y: 4.200012}
+        - {x: -16.5, y: -7.799988}
+        - {x: -13.5, y: -13.799988}
+        - {x: -9.5, y: -14.799988}
+        - {x: 8.5, y: -14.799988}
+        - {x: 15.5, y: -2.7999878}
+        - {x: 15.5, y: 12.200012}
+    - name: TestUnit_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 258.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10.5, y: 14.200012}
+        - {x: -10.5, y: 14.200012}
+        - {x: -16.5, y: 7.200012}
+        - {x: -16.5, y: -9.799988}
+        - {x: -4.5, y: -14.799988}
+        - {x: 6.5, y: -14.799988}
+        - {x: 10.5, y: -10.799988}
+        - {x: 16.5, y: 4.200012}
+        - {x: 16.5, y: 10.200012}
+    - name: TestUnit_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 258.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1.5, y: 15.200012}
+        - {x: -5.5, y: 15.200012}
+        - {x: -10.5, y: 11.200012}
+        - {x: -10.5, y: -12.799988}
+        - {x: -7.5, y: -14.799988}
+        - {x: 3.5, y: -14.799988}
+        - {x: 12.5, y: -11.799988}
+        - {x: 15.5, y: -2.7999878}
+        - {x: 15.5, y: 1.2000122}
+        - {x: 14.5, y: 4.200012}
+    - name: TestUnit_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 226.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.5, y: 15.199997}
+        - {x: -15.5, y: 14.199997}
+        - {x: -15.5, y: -13.800003}
+        - {x: -12.5, y: -14.800003}
+        - {x: 5.5, y: -14.800003}
+        - {x: 13.5, y: -11.800003}
+        - {x: 13.5, y: 8.199997}
+        - {x: 9.5, y: 14.199997}
+        - {x: 1.5, y: 15.199997}
+    - name: TestUnit_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 226.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.5, y: 15.199997}
+        - {x: -16.5, y: -6.800003}
+        - {x: -13.5, y: -12.800003}
+        - {x: -7.5, y: -14.800003}
+        - {x: 7.5, y: -14.800003}
+        - {x: 13.5, y: -7.800003}
+        - {x: 13.5, y: 15.199997}
+    - name: TestUnit_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 226.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.5, y: 15.199997}
+        - {x: -16.5, y: 7.199997}
+        - {x: -16.5, y: -9.800003}
+        - {x: -11.5, y: -14.800003}
+        - {x: 7.5, y: -14.800003}
+        - {x: 13.5, y: -11.800003}
+        - {x: 13.5, y: 13.199997}
+        - {x: 3.5, y: 15.199997}
+    - name: TestUnit_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 226.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.5, y: 15.199997}
+        - {x: -16.5, y: 10.199997}
+        - {x: -16.5, y: -6.800003}
+        - {x: -14.5, y: -12.800003}
+        - {x: -11.5, y: -14.800003}
+        - {x: 5.5, y: -14.800003}
+        - {x: 12.5, y: -11.800003}
+        - {x: 13.5, y: -7.800003}
+        - {x: 13.5, y: 9.199997}
+        - {x: 2.5, y: 15.199997}
+    - name: TestUnit_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 194.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12.5, y: 11.199997}
+        - {x: 8.5, y: 15.199997}
+        - {x: -10.5, y: 15.199997}
+        - {x: -14.5, y: 8.199997}
+        - {x: -14.5, y: -7.800003}
+        - {x: -13.5, y: -11.800003}
+        - {x: -6.5, y: -14.800003}
+        - {x: 6.5, y: -14.800003}
+        - {x: 10.5, y: -10.800003}
+        - {x: 9.5, y: -7.800003}
+        - {x: 12.5, y: 8.199997}
+    - name: TestUnit_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 194.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.5, y: 15.199997}
+        - {x: -14.5, y: 10.199997}
+        - {x: -14.5, y: -11.800003}
+        - {x: -6.5, y: -14.800003}
+        - {x: 7.5, y: -14.800003}
+        - {x: 12.5, y: -10.800003}
+        - {x: 12.5, y: 15.199997}
+    - name: TestUnit_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 194.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12.5, y: 3.199997}
+        - {x: 12.5, y: 15.199997}
+        - {x: -12.5, y: 15.199997}
+        - {x: -14.5, y: 11.199997}
+        - {x: -14.5, y: -10.800003}
+        - {x: -13.5, y: -12.800003}
+        - {x: -7.5, y: -14.800003}
+        - {x: 6.5, y: -14.800003}
+        - {x: 10.5, y: -10.800003}
+        - {x: 9.5, y: -6.800003}
+        - {x: 11.5, y: -1.800003}
+    - name: TestUnit_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 194.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3.5, y: 15.199997}
+        - {x: -14.5, y: 9.199997}
+        - {x: -14.5, y: -6.800003}
+        - {x: -13.5, y: -11.800003}
+        - {x: -8.5, y: -14.800003}
+        - {x: 12.5, y: -14.800003}
+        - {x: 12.5, y: 15.199997}
+    - name: TestUnit_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 162.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10.5, y: 17.199997}
+        - {x: -15.5, y: 17.199997}
+        - {x: -15.5, y: -14.800003}
+        - {x: 6.5, y: -14.800003}
+        - {x: 10.5, y: -10.800003}
+        - {x: 11.5, y: -7.800003}
+        - {x: 11.5, y: 13.199997}
+    - name: TestUnit_17
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 162.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6.5, y: 16.199997}
+        - {x: -11.5, y: 15.199997}
+        - {x: -12.5, y: 13.199997}
+        - {x: -12.5, y: 9.199997}
+        - {x: -10.5, y: 6.199997}
+        - {x: -11.5, y: 7.199997}
+        - {x: -15.5, y: 7.199997}
+        - {x: -15.5, y: -7.800003}
+        - {x: -14.5, y: -11.800003}
+        - {x: -6.5, y: -14.800003}
+        - {x: 8.5, y: -14.800003}
+        - {x: 12.5, y: -11.800003}
+        - {x: 12.5, y: 16.199997}
+    - name: TestUnit_18
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 162.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10.5, y: 17.199997}
+        - {x: -12.5, y: 17.199997}
+        - {x: -13.5, y: 14.199997}
+        - {x: -14.5, y: 7.199997}
+        - {x: -14.5, y: 4.199997}
+        - {x: -10.5, y: -0.80000305}
+        - {x: -6.5, y: -2.800003}
+        - {x: -10.5, y: -7.800003}
+        - {x: -11.5, y: -10.800003}
+        - {x: -5.5, y: -14.800003}
+        - {x: 3.5, y: -14.800003}
+        - {x: 10.5, y: -10.800003}
+        - {x: 11.5, y: -7.800003}
+        - {x: 11.5, y: 14.199997}
+    - name: TestUnit_19
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 162.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.5, y: 16.199997}
+        - {x: -13.5, y: 12.199997}
+        - {x: -15.5, y: 11.199997}
+        - {x: -15.5, y: -14.800003}
+        - {x: 7.5, y: -14.800003}
+        - {x: 10.5, y: -10.800003}
+        - {x: 11.5, y: -6.800003}
+        - {x: 11.5, y: 16.199997}
+    - name: TestUnit_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 130.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16.5, y: 5.199997}
+        - {x: 11.5, y: 9.199997}
+        - {x: 5.5, y: 16.199997}
+        - {x: -4.5, y: 16.199997}
+        - {x: -10.5, y: 9.199997}
+        - {x: -10.5, y: -13.800003}
+        - {x: -6.5, y: -14.800003}
+        - {x: 6.5, y: -14.800003}
+        - {x: 10.5, y: -10.800003}
+        - {x: 9.5, y: -7.800003}
+        - {x: 16.5, y: 3.199997}
+    - name: TestUnit_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 130.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.5, y: 16.199997}
+        - {x: -10.5, y: 14.199997}
+        - {x: -10.5, y: -11.800003}
+        - {x: -7.5, y: -14.800003}
+        - {x: 16.5, y: -14.800003}
+        - {x: 16.5, y: 13.199997}
+        - {x: 11.5, y: 16.199997}
+    - name: TestUnit_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 130.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.5, y: 16.199997}
+        - {x: -10.5, y: 10.199997}
+        - {x: -10.5, y: -12.800003}
+        - {x: -8.5, y: -14.800003}
+        - {x: 7.5, y: -14.800003}
+        - {x: 14.5, y: -12.800003}
+        - {x: 15.5, y: -6.800003}
+        - {x: 15.5, y: 6.199997}
+        - {x: 6.5, y: 16.199997}
+    - name: TestUnit_23
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 130.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5.5, y: 16.199997}
+        - {x: -6.5, y: 16.199997}
+        - {x: -10.5, y: 10.199997}
+        - {x: -10.5, y: -12.800003}
+        - {x: -5.5, y: -14.800003}
+        - {x: 8.5, y: -14.800003}
+        - {x: 12.5, y: -11.800003}
+        - {x: 16.5, y: -3.800003}
+        - {x: 16.5, y: 8.199997}
+    - name: TestUnit_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 98.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11.5, y: 16.199997}
+        - {x: -10.5, y: 16.199997}
+        - {x: -16.5, y: 6.199997}
+        - {x: -16.5, y: -6.800003}
+        - {x: -13.5, y: -12.800003}
+        - {x: -7.5, y: -14.800003}
+        - {x: 6.5, y: -14.800003}
+        - {x: 10.5, y: -10.800003}
+        - {x: 16.5, y: 3.199997}
+        - {x: 16.5, y: 12.199997}
+    - name: TestUnit_25
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 98.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.5, y: 15.199997}
+        - {x: -16.5, y: 9.199997}
+        - {x: -16.5, y: -1.800003}
+        - {x: -13.5, y: -3.800003}
+        - {x: -12.5, y: -10.800003}
+        - {x: -8.5, y: -14.800003}
+        - {x: 5.5, y: -14.800003}
+        - {x: 13.5, y: -11.800003}
+        - {x: 16.5, y: 2.199997}
+        - {x: 16.5, y: 11.199997}
+        - {x: 11.5, y: 15.199997}
+      - - {x: 13.5, y: -0.80000305}
+        - {x: 15.5, y: -2.800003}
+        - {x: 16.5, y: -2.800003}
+        - {x: 16.5, y: 4.199997}
+        - {x: 13.5, y: 3.199997}
+    - name: TestUnit_26
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 98.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.5, y: 15.199997}
+        - {x: -13.5, y: 12.199997}
+        - {x: -16.5, y: 5.199997}
+        - {x: -16.5, y: -5.800003}
+        - {x: -8.5, y: -14.800003}
+        - {x: 5.5, y: -14.800003}
+        - {x: 12.5, y: -11.800003}
+        - {x: 16.5, y: -3.800003}
+        - {x: 16.5, y: 14.199997}
+        - {x: 15.5, y: 15.199997}
+    - name: TestUnit_27
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 98.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.5, y: 15.199997}
+        - {x: -16.5, y: 14.199997}
+        - {x: -16.5, y: -5.800003}
+        - {x: -12.5, y: -10.800003}
+        - {x: -8.5, y: -14.800003}
+        - {x: 5.5, y: -14.800003}
+        - {x: 13.5, y: -11.800003}
+        - {x: 15.5, y: -3.800003}
+        - {x: 15.5, y: 9.199997}
+        - {x: 13.5, y: 15.199997}
+    - name: TestUnit_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 66.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.5, y: 16.199997}
+        - {x: -16.5, y: 13.199997}
+        - {x: -16.5, y: -0.80000305}
+        - {x: -13.5, y: -11.800003}
+        - {x: -6.5, y: -14.800003}
+        - {x: 7.5, y: -14.800003}
+        - {x: 9.5, y: -11.800003}
+        - {x: 9.5, y: 10.199997}
+        - {x: 8.5, y: 16.199997}
+    - name: TestUnit_29
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 66.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.5, y: 15.199997}
+        - {x: -16.5, y: 14.199997}
+        - {x: -16.5, y: -3.800003}
+        - {x: -13.5, y: -12.800003}
+        - {x: -7.5, y: -14.800003}
+        - {x: 7.5, y: -14.800003}
+        - {x: 10.5, y: -11.800003}
+        - {x: 10.5, y: 15.199997}
+    - name: TestUnit_30
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 66.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7.5, y: 15.199997}
+        - {x: -13.5, y: 15.199997}
+        - {x: -16.5, y: 10.199997}
+        - {x: -16.5, y: -7.800003}
+        - {x: -13.5, y: -12.800003}
+        - {x: -6.5, y: -14.800003}
+        - {x: 6.5, y: -14.800003}
+        - {x: 10.5, y: -10.800003}
+        - {x: 11.5, y: -4.800003}
+        - {x: 11.5, y: 7.199997}
+    - name: TestUnit_31
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 66.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.5, y: 15.199997}
+        - {x: -16.5, y: 9.199997}
+        - {x: -16.5, y: -1.800003}
+        - {x: -13.5, y: -12.800003}
+        - {x: -7.5, y: -14.800003}
+        - {x: 7.5, y: -14.800003}
+        - {x: 10.5, y: -11.800003}
+        - {x: 10.5, y: 13.199997}
+        - {x: 6.5, y: 15.199997}
+      - - {x: 13.5, y: 8.199997}
+        - {x: 15.5, y: 6.199997}
+        - {x: 16.5, y: 6.199997}
+        - {x: 16.5, y: 12.199997}
+        - {x: 13.5, y: 11.199997}
+    - name: TestUnit_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 34.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3.5, y: 16.2}
+        - {x: -12.5, y: 16.2}
+        - {x: -12.5, y: -5.799999}
+        - {x: -11.5, y: -10.799999}
+        - {x: -7.5, y: -14.799999}
+        - {x: 5.5, y: -14.799999}
+        - {x: 13.5, y: -11.799999}
+        - {x: 14.5, y: -1.7999992}
+        - {x: 14.5, y: 9.200001}
+        - {x: 9.5, y: 15.200001}
+    - name: TestUnit_33
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 34.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.5, y: 16.2}
+        - {x: -13.5, y: 15.200001}
+        - {x: -13.5, y: -6.799999}
+        - {x: -8.5, y: -14.799999}
+        - {x: 6.5, y: -14.799999}
+        - {x: 12.5, y: -11.799999}
+        - {x: 13.5, y: -4.799999}
+        - {x: 13.5, y: 10.200001}
+        - {x: -0.5, y: 16.2}
+    - name: TestUnit_34
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 34.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 16.2}
+        - {x: -13.5, y: -13.799999}
+        - {x: -11.5, y: -14.799999}
+        - {x: 7.5, y: -14.799999}
+        - {x: 15.5, y: -2.7999992}
+        - {x: 15.5, y: 6.200001}
+        - {x: -0.5, y: 16.2}
+    - name: TestUnit_35
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 34.7
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 16.2}
+        - {x: -13.5, y: -12.799999}
+        - {x: -8.5, y: -14.799999}
+        - {x: 7.5, y: -14.799999}
+        - {x: 15.5, y: -1.7999992}
+        - {x: 15.5, y: 5.200001}
+        - {x: -1.5, y: 16.2}
+    - name: TestUnit_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2.7000008
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11.5, y: 16.2}
+        - {x: 2.5, y: 16.2}
+        - {x: -12.5, y: 11.200001}
+        - {x: -15.5, y: 7.200001}
+        - {x: -15.5, y: 4.200001}
+        - {x: -14.5, y: 1.2000008}
+        - {x: -13.5, y: -11.799999}
+        - {x: -6.5, y: -14.799999}
+        - {x: 7.5, y: -14.799999}
+        - {x: 12.5, y: -9.799999}
+        - {x: 12.5, y: 5.200001}
+        - {x: 11.5, y: 14.200001}
+    - name: TestUnit_37
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 2.7000008
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3.5, y: 16.2}
+        - {x: -4.5, y: 14.200001}
+        - {x: -14.5, y: 10.200001}
+        - {x: -14.5, y: -6.799999}
+        - {x: -13.5, y: -11.799999}
+        - {x: -6.5, y: -14.799999}
+        - {x: 7.5, y: -14.799999}
+        - {x: 14.5, y: -7.799999}
+        - {x: 14.5, y: 0.20000076}
+        - {x: 11.5, y: 16.2}
+    - name: TestUnit_38
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2.7000008
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -0.5, y: 16.2}
+        - {x: -4.5, y: 14.200001}
+        - {x: -16.5, y: 4.200001}
+        - {x: -16.5, y: -1.7999992}
+        - {x: -13.5, y: -12.799999}
+        - {x: -7.5, y: -14.799999}
+        - {x: 16.5, y: -14.799999}
+        - {x: 16.5, y: 10.200001}
+        - {x: 15.5, y: 16.2}
+    - name: TestUnit_39
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 2.7000008
+        width: 32.25
+        height: 32.3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9.5, y: 16.2}
+        - {x: -0.5, y: 16.2}
+        - {x: -15.5, y: 7.200001}
+        - {x: -15.5, y: -7.799999}
+        - {x: -14.5, y: -12.799999}
+        - {x: -7.5, y: -14.799999}
+        - {x: 6.5, y: -14.799999}
+        - {x: 14.5, y: -7.799999}
+        - {x: 14.5, y: 4.200001}
+        - {x: 12.5, y: 15.200001}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
